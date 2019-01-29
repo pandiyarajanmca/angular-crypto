@@ -1,0 +1,156 @@
+<!-- ** note : please paste the common layout for all component ********-->
+<!--** common layout start ** -->
+<div class="container-fluid dashboard-root p-0" [class]="authService.globalSidebarLeft?'container-fluid dashboard-root p-0 right-close left-open ':(authService.globalSidebarRight?' container-fluid dashboard-root p-0 right-open left-close':'container-fluid dashboard-root p-0 left-close right-close')">
+  <div class="left-sidenav">
+    <app-leftmenu></app-leftmenu>
+  </div>
+  <div class="main-section">
+    <app-header></app-header>
+    <div class="bg-dashboard" slimScroll [options]="opts" style="height: 820px;">
+      <div class="row bg-dashboard">
+        <div class="col">
+          <div class="dashboard-body pt-2">
+            <!-- common layout end -->
+            <div class="row blue-border-top bg-white mt-2">
+              <div class="col-sm-4">
+                <div class="card-body text-center">
+                  <h4>BTC HOLDINGS</h4>
+                  <h3>0.00 BTC</h3>
+                  <p>$0.00</p>
+                  <p><a href="">View Details</a></p>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card-body text-center">
+                  <h4>FIAT HOLDINGS</h4>
+                  <h3>$0.00 </h3>
+                  <p>USD</p>
+                  <p><a href="">View Details</a></p>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card-body text-center">
+                  <h4>ASSET HOLDINGS</h4>
+                  <h3>$0.00</h3>
+                  <p>...</p>
+                  <p><a href="">View Details</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="slide-row">
+              <div class="border-0 bg-transparent">
+                <owl-carousel [options]="owlOptions" [carouselClasses]="['owl-theme mt-4 sliding']">
+                  <div class="card-body  item bg-white blue-border-top ml-1 mr-1  text-center">
+                    <figure class="silder_img">
+                      <img src="/assets/images/silder1.png">
+                    </figure>
+                    <div class="silder_info">
+                      <h3>I WISH TO</h3>
+                      <p>Make or receiveva payment.</p>
+                    </div>
+                  </div>
+                  <div class="card-body  item bg-white blue-border-top ml-1 mr-1  text-center">
+                    <figure class="silder_img">
+                      <img src="/assets/images/silder2.png">
+                    </figure>
+                    <div class="silder_info">
+                      <h3>I WISH TO</h3>
+                      <p>Make or receiveva payment.</p>
+                    </div>
+                  </div>
+                  <div class="card-body  item bg-white blue-border-top ml-1 mr-1  text-center">
+                    <figure class="silder_img">
+                      <img src="/assets/images/silder3.png">
+                    </figure>
+                    <div class="silder_info">
+                      <h3>I WISH TO</h3>
+                      <p>Make or receiveva payment.</p>
+                    </div>
+                  </div>
+                  <div class="card-body  item bg-white blue-border-top ml-1 mr-1  text-center">
+                    <figure class="silder_img">
+                      <img src="/assets/images/silder4.png">
+                    </figure>
+                    <div class="silder_info">
+                      <h3>I WISH TO</h3>
+                      <p>Make or receiveva payment.</p>
+                    </div>
+                  </div>
+                  <div class="item card-body  bg-white blue-border-top ml-1 mr-1  text-center">
+                    <figure class="silder_img">
+                      <img src="/assets/images/silder1.png">
+                    </figure>
+                    <div class="silder_info">
+                      <h3>I WISH TO</h3>
+                      <p>Make or receiveva payment.</p>
+                    </div>
+                  </div>
+                </owl-carousel>
+              </div>
+            </div>
+            <div class="row blue-border-top bg-white mt-2 page-notification">
+              <h2 class="col-sm-8 pt-2 pl-4 pt-3 pb-2">Recent Trust Transactions</h2>
+              <span class="all-time col-sm-4 pt-3 pb-2 text-right pr-4">All Time <div class="input-group inputdate-picker d-inline-flex w-auto">
+                  <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model2" ngbDatepicker #d="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"> <i class="fa fa-calendar"
+                        aria-hidden="true"></i></button>
+                  </div>
+                </div>
+              </span>
+              <div class="col-sm-12 p-0 d-none d-lg-block">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Wish Type</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Trustee Fee</th>
+                      <th scope="col">Status</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let Transactions of transactions; let i = index">
+                      <td>{{Transactions.WishType}}</td>
+                      <th scope="row">{{Transactions.Description}}</th>
+                      <td>{{Transactions.Date}}</td>
+                      <td>{{Transactions.TrusteeFee}}</td>
+                      <td>{{Transactions.Status}}</td>
+                      <td><img src="assets/images/eye.svg"></td>
+                      <td><img src="assets/images/download.svg"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-sm-12 p-0 d-md-block d-lg-none">
+                <table class="table-rep-label col-12">
+                  <tbody>
+                    <tr *ngFor="let Transactions of transactions; let i = index">
+                      <td data-label="Wish Type">{{Transactions.WishType}}</td>
+                      <td data-label="Description">{{Transactions.Description}}</td>
+                      <td data-label="Date">{{Transactions.Date}}</td>
+                      <td data-label="Trustee Fee">{{Transactions.TrusteeFee}}</td>
+                      <td data-label="Status">{{Transactions.Status}}</td>
+                      <td data-label="View"><img src="assets/images/eye.svg"></td>
+                      <td data-label="Download"><img src="assets/images/download.svg"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div *ngIf="!Transactions || Transactions.length === 0">
+              <p class="no-record p-1">You have no recent notifications.</p>
+            </div>
+            <!-- common layout start  -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-sidenav">
+    <app-righttmenu></app-righttmenu>
+  </div>
+</div>
+<!-- common layout end  -->

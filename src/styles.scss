@@ -1,0 +1,909 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "variables";
+@import "mixins";
+
+@font-face {
+  font-family: "Baskerville";
+  src: url("/assets/fonts/Baskerville.ttc");
+}
+
+@font-face {
+  font-family: "Baskerville-italic";
+  src: url("/assets/fonts/Baskervville-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("/assets/fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("/assets/fonts/Roboto/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("/assets/fonts/Roboto/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url("/assets/fonts/raleway/Raleway-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-SemiBold";
+  src: url("/assets/fonts/raleway/Raleway-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Medium";
+  src: url("/assets/fonts/raleway/Raleway-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url("/assets/fonts/raleway/Raleway-Regular.ttf") format("truetype");
+}
+
+body {
+  font: 100% $font-semibold;
+  color: $primary-color;
+}
+
+h2 {
+  font-size: $f-20;
+  font-family: "Raleway-Medium";
+}
+
+h3 {
+  font-size: $f-16;
+  font-family: "Raleway-Medium";
+}
+h4 {
+  font-size: $f-14;
+}
+
+p {
+  font-size: $f-12;
+  color: $pargraph;
+}
+
+.modal-dialog-centered {
+  max-width: 400px !important;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $heading-color;
+
+  &:hover {
+    color: $pargraph;
+  }
+}
+
+.bg-white {
+  background: $bg-white;
+}
+
+.bg-dashboard {
+  background: $dashboard-bg-color;
+
+  &::after {
+    position: fixed;
+    content: "";
+    left: 0;
+    right: 250px;
+    width: 100%;
+    height: 100%;
+    background: $dashboard-bg-color;
+    z-index: -2;
+  }
+}
+// scroll bar design
+::-webkit-scrollbar {
+  width: 0.4em;
+  height: 0.4em;
+}
+::-webkit-scrollbar-track {
+  @include box-shadow(0, 0, 7px, rgba(0, 0, 0, 0.2), "true");
+}
+::-webkit-scrollbar-thumb {
+  background-color: $menu-color;
+  outline: 1px solid $menu-color;
+  @include border-radius(10px);
+}
+//End scroll bar design
+
+.dashboard-root {
+  font-family: "Raleway-SemiBold";
+  font-size: 12px;
+}
+
+.font-ra-medium {
+  font-family: "Raleway-Medium";
+  font-size: 12px;
+}
+
+.font-ra-regular {
+  font-family: "Raleway-regular";
+  font-size: 12px;
+}
+
+.blue-border-top {
+  border-top: solid 5px $border-color;
+}
+
+.blue-border-left {
+  border-top: solid 5px $border-color;
+}
+
+.blue-border-bottom {
+  border-top: solid 5px $border-color;
+}
+
+.upload {
+  width: 15px;
+  height: 15px;
+}
+
+input.uploadbtn {
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+
+// data picker
+button.calendar,
+button.calendar:active {
+  font-family: $font-regular;
+  background-position: center;
+}
+
+.inputdate-picker {
+  font-family: $font-regular;
+  font-size: $f-12;
+}
+
+/* Forms textfiled design and animations*/
+.tokenox-form {
+  .form-input-error{
+    color: red;
+    font-size: 10px;
+    position: absolute;
+    top: 30px;
+      width: 100%;
+    float: left;
+
+  }
+
+  .input-field {
+    position: relative;
+    width: 320px;
+    height: 50px;
+    line-height: 50px;
+    @include device-sm {
+      width: 100%;
+    }
+    label {
+      position: absolute;
+      top: -5px;
+      left: 10px;
+      // width: 100%;
+      color: $button-bg-color;
+      @include transition(0.2s all ease-in-out);
+      cursor: text;
+      font-size: 13px;
+      font-family: "Raleway-Medium";
+    }
+    input,
+    textarea, select {
+      //width: 100%;
+      border: 0;
+      outline: 0;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid $active-border-clr;
+      box-shadow: none;
+      color: $button-bg-color;
+      background: transparent;
+      font-family: "Raleway-Medium";
+      font-size: 14px;
+      padding-left: 10px;
+      @include border-radius(0);
+
+      &:invalid {
+        outline: 0;
+      }
+
+      &:focus {
+        border-color: $button-bg-color;
+      }
+    }
+  }
+
+  input.ng-valid,
+  input.ng-dirty,
+  select.ng-valid,
+  select.ng-dirty,
+  textarea.ng-valid,
+  textarea.ng-dirty {
+    border-color: $button-bg-color;
+  }
+
+  input:focus~label,
+  input.ng-valid~label,
+  input.ng-dirty~label,
+  select:focus~label,
+  select.ng-valid~label,
+  select.ng-dirty~label,
+  textarea:focus~label,
+  textarea.ng-valid~label,
+  textarea.ng-dirty~label {
+    font-size: 12px;
+    top: -28px;
+    color: $pargraph;
+    font-family: "Raleway-Bold";
+    @include transition(0.2s all ease-in-out);
+  }
+
+  .checkbox-blk {
+    padding-left: 10px;
+
+    .form_checkbox {
+      width: 320px;
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      font-family: "Raleway-Medium";
+      @include user-select(none);
+      line-height: 16px;
+      color: $button-bg-color;
+      @include device-sm { width: 100%; }
+      &:hover input ~ .checkmark {
+        border-color: darken($active-border-clr, 10%);
+      }
+
+      a {
+        font-family: "Raleway-Bold";
+      }
+      input,
+      textarea, select {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+
+        &:checked ~ .checkmark:after {
+          display: block;
+        }
+
+        &:checked ~ .checkmark {
+          background-color: $pargraph;
+          // border-color: #ffffff;
+        }
+      }
+
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background-color: #ffffff;
+        border: 1px solid $active-border-clr;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border: 1px solid #ffffff;
+          display: none;
+        }
+      }
+    }
+  }
+}
+/* modile-verification*/
+.mobile-verification {
+  .dropdown-content a {
+    font-size: 12px;
+  }
+  .dropbtn,
+  .form-control {
+    background-color: transparent !important;
+    border-radius: 0;
+    height: 44px;
+  }
+  .dropbtn:after {
+    content: "\f107";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    color: #a7a7a7;
+    padding: 0 6px 0 16px;
+    font-size: 20px;
+  }
+  .w-mob {
+    width: 320px;
+    padding-top: 25px;
+    margin-left: 48px;
+  }
+  .dropbtn {
+    padding-top: 10px;
+    vertical-align: top;
+    border: 1px solid #ced4da !important;
+    padding-bottom: 2px;
+    border-radius: 0;
+    border-right: 0 !important;
+  }
+  .input-group {
+    //margin: 40px 0 0 48px;
+    //display: inline-flex;
+  }
+}
+.modal-body .ng-select {
+  .ng-select-container {
+  border-radius: 0!important;
+  border-right: 0!important;
+  }
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container{
+  border-color:#dee2e6;
+  box-shadow:none!important;
+}
+
+/* select*/
+.selected-box {
+  width: 230px;
+  margin: 16px 0;
+}
+
+.btn:focus,
+.btn.focus {
+  outline: 0;
+  box-shadow: none;
+}
+.ng-select.ng-select-opened > .ng-select-container,
+.ng-select .ng-select-container,
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  background: transparent !important;
+}
+
+/*Table-Design*/
+.table-striped {
+  margin-bottom: 0 !important;
+
+  tbody tr {
+    &:nth-of-type(odd) {
+      background-color: $border-light-grey !important;
+    }
+
+    &.unread {
+      th,
+      td {
+        color: $button-light-text !important;
+        border-bottom: 1px solid #a1a6bd;
+      }
+
+      background-color: $table-bg-active !important;
+    }
+    th,
+    td {
+      border-top: 1px solid transparent !important;
+      padding: 18px 10px;
+      color: $pargraph !important;
+      font-size: $f-14;
+      padding-left: 25px;
+      img{
+        height: 14px;
+
+      }
+    }
+  }
+
+  th,
+  td {
+    padding-left: 25px;
+  }
+}
+
+.no-record {
+  text-align: center;
+  font-size: $f-16;
+  color: $pargraph;
+  font-family: $font-medium;
+}
+
+
+table-pagination {
+  background: transparent;
+  border: transparent;
+  color: $pargraph;
+  button{
+    @extend table-pagination;
+    outline: none;
+  }
+  select{
+    @extend table-pagination;
+    outline: none;
+  }
+}
+
+.data-pagination.gol {
+  background-color: $menu-color;
+  padding: 10px;
+  padding-right: 25px;
+}
+
+.make_div {
+  background-color: $menu-color;
+  padding: 17px;
+  padding-left: 25px;
+  float: left;
+  display: block;
+  width: 100%;
+  color: #ffffff;
+}
+
+i.fa.fa-angle-left,
+i.fa.fa-angle-right {
+  font-size: $f-18;
+  vertical-align: middle;
+}
+
+.data-pagination.gol {
+  button.link-button {
+  padding: 5px 15px;
+  }
+}
+
+/*all time - date select*/
+.all-time {
+  color: $pargraph;
+  font-size: 12px;
+}
+
+.fa-calendar {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.light-button {
+  background: $active-border-clr;
+  width: 320px;
+  line-height: 32px;
+  height: 44px;
+  text-align: center;
+  color: $primary-color;
+  font-size: 13px;
+  font-family: "Raleway-SemiBold";
+  @include border-radius(0);
+  letter-spacing: 1.4px;
+  border: 1px solid transparent;
+  @include transition(0.2s all ease-in-out);
+  @include device-sm {
+    width: 100%;
+  }
+  &:hover {
+    background: #ffffff;
+    color: #6c6e7f!important;
+    border: 1px solid $primary-color;
+    @include transition(0.2s all ease-in-out);
+  }
+}
+
+
+
+.dark-button {
+  display: inline-block;
+  background: $button-bg-color;
+  width: 230px;
+  height: 44px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "Raleway-SemiBold";
+  letter-spacing: 1.2px;
+  line-height: 44px;
+  text-decoration: none !important;
+  border: 1px solid transparent;
+  @include transition(0.2s all ease-in-out);
+  @include device-xss {
+    width: 200px;
+  }
+  i {
+    font-size: 14px;
+    padding-right: 4px;
+  }
+
+  &:hover {
+    background: #ffffff;
+    color: $button-bg-color;
+    border: 1px solid $button-bg-color;
+    @include transition(0.2s all ease-in-out);
+  }
+}
+
+.white-button {
+  display: inline-block;
+  background: #ffffff;
+  width: 230px;
+  height: 44px;
+  text-align: center;
+  color: $button-bg-color;
+  font-size: 12px;
+  font-family: "Raleway-SemiBold";
+  letter-spacing: 1.2px;
+  line-height: 44px;
+  text-decoration: none !important;
+  // border:1px solid transparent;
+  @include transition(0.2s all ease-in-out);
+  @include device-xss {
+    width: 200px;
+  }
+  i {
+    font-size: 14px;
+    padding-right: 4px;
+  }
+
+  &:hover {
+    background: $button-bg-color;
+    color: #ffffff;
+    // border:1px solid $button-bg-color;
+    @include transition(0.2s all ease-in-out);
+  }
+}
+
+//remove browser autofill default styles
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: $button-bg-color;
+  // -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.ng-select{
+  &.ng-select-single {
+  .ng-select-container {
+  height: 50px;
+  border: 1px solid #a1a6bd;
+  }
+}
+}
+
+.ng-select {
+  .ng-arrow-wrapper {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  padding-right: 0 !important;
+  border: 1px solid #a1a6bd;
+  }
+}
+.ng-dropdown-panel {
+  .ng-dropdown-panel-items {
+    .ng-option {
+       padding: 15px 10px;
+       border-bottom: 1px solid #a1a6bd;
+    }
+  }
+}
+
+.payment_span {
+  a {
+    color: #ffffff;
+    i {
+      padding-right: 15px;
+    }
+  }
+}
+.btn-dark {
+  background-color: $pargraph;
+}
+.btn-extradark {
+  background-color: $button-bg-color;
+  color: #ffffff;
+}
+.btn-modal {
+  width: 200px;
+}
+.payment_div {
+  background-color: $pargraph;
+  padding: 17px;
+  padding-left: 25px;
+  float: left;
+  display: block;
+  width: 100%;
+  color: #ffffff;
+}
+
+.inner_div {
+  background: #ffffff;
+  border-left: 5px solid #c2c7e3;
+
+  .sub_balance_div {
+    width: 100%;
+    float: left;
+    text-align: center;
+    span.value_span {
+      display: block;
+      font-size: $f-30;
+      color: $pargraph;
+      padding: 5px;
+      font-family: "Roboto-Light";
+    }
+    span.small_value_span {
+      display: block;
+      font-size: $f-12;
+      color: $pargraph;
+      padding: 5px;
+      font-family: "Roboto-Light";
+    }
+  }
+  .btn {
+    margin: 0;
+    background: $button-bg-color;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: "Raleway-SemiBold";
+    letter-spacing: 1.2px;
+    line-height: 38px;
+    @include border-radius(0);
+    text-decoration: none !important;
+    border: 1px solid transparent;
+    @include transition(0.2s all ease-in-out);
+    &:hover {
+      background: #ffffff;
+      color: $button-bg-color;
+      border: 1px solid $button-bg-color;
+      @include transition(0.2s all ease-in-out);
+    }
+    @include device-sm {
+      line-height:inherit;
+      width: auto;
+      margin-top: 5px;
+    }
+  }
+}
+.btn_dv {
+  margin: 0;
+  background: $button-bg-color;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "Raleway-SemiBold";
+  letter-spacing: 1.2px;
+  line-height: 38px;
+  border-radius: 0;
+  text-decoration: none !important;
+  border: 1px solid transparent;
+  @include transition(0.2s all ease-in-out);
+  &:hover {
+    background: #ffffff;
+    color: $button-bg-color;
+    border: 1px solid $button-bg-color;
+    @include transition(0.2s all ease-in-out);
+  }
+  @include device-sm {
+    line-height: inherit;
+    width: auto;
+  }
+}
+textarea.form-control {
+  height: calc(2.25rem + 2px);
+}
+
+.span_field {
+  position: absolute;
+  right: -215px;
+  top: 10px;
+  width: 200px;
+  color: #a1a6bd;
+}
+
+  .table-rep-label {
+    border: 0;
+
+    tr {
+      display: block;
+      border-bottom: 1px solid #f7f8ff;
+
+      &:nth-of-type(odd) {
+        background-color: $border-light-grey !important;
+      }
+
+      &.unread {
+        background-color: $table-bg-active !important;
+      }
+    }
+
+    td {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+      border-bottom: 1px solid #f7f8ff;
+      padding: 10px 25px;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      img{
+        height: 13px;
+      }
+    }
+  }
+
+.dashboard-root{
+
+
+  .left-sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding-top: 20px;
+  }
+
+  .right-sidenav {
+    height: 100%;
+    width: 70px;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    @include device-md { display: none; }
+  }
+
+  .main-section {
+    margin-left: 250px;
+    padding: 0px 10px;
+    margin-right: 70px;
+    @include device-md { margin:0!important;padding: 0;}
+  }
+
+   &.left-close{
+    .main-section {
+        margin-left: 70px;
+    }
+    .left-sidenav {
+      width: 55px;
+      @include device-md { width: 0; display: none;}
+    }
+  }
+  &.right-open {
+    .left-sidenav {
+      width: 55px;
+    }
+
+    .right-sidenav {
+      width: 245px;
+    }
+    .main-section{
+      margin-right: 255px;
+    }
+  }
+  @include device-md{
+    .payment_inner{
+      padding: 0 20px 0 15px!important
+    }
+    app-header{
+      height: 50px;
+      display: block;
+    }
+    .page-notification{
+      padding: 0 20px;
+    }
+    .table-rep-label{
+      td{
+        &:before{
+          padding-right:10px;
+          min-width: 100px;
+        }
+       text-align: left;
+       padding: 8px 5px;
+      }
+    }
+  }
+
+}
+int-phone-prefix.mobile-no {
+  display: inline-block;
+}
+.mobile-verification{
+  #mobile-No1{
+    &.form-control {
+    width: 160px;
+    float: right;
+    border-left: 0;
+    display: inline-block;
+    -webkit-appearance: none;
+    }
+  }
+  .mobile-no{
+    input {
+      width: 80px;
+    }
+  }
+
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.owl-carousel {
+  .owl-nav {
+    .owl-prev {
+      width: 15px;
+      height: 100px;
+      position: absolute;
+      top: 18%;
+      margin-left: -20px;
+      display: block !important;
+      border: 0px solid black;
+      outline: none;
+      background: transparent!important;
+      i {
+        transform: scale(1, 3);
+        color: #ccc;
+      }
+    }
+
+    button.owl-next {
+      width: 15px;
+      height: 100px;
+      position: absolute;
+      top: 18%;
+      right: -25px;
+      background: transparent!important;
+      display: block !important;
+      border: 0px solid black;
+        outline: none;
+      i {
+        @include transform(scale(1,3));
+        color: #ccc;
+      }
+    }
+  }
+}

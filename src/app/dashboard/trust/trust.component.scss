@@ -1,0 +1,69 @@
+
+@import "../../../variables.scss";
+@import "../../../mixins.scss";
+.bg-white{
+    h2{
+        color: $heading-color;
+    }
+    .head_div{
+        background:$bg-light-grey;
+        padding:0;
+        color:$pargraph;
+        @include device-md {
+            display: block!important;
+        }
+        .list_div{
+                width: 18%;
+                button{
+                margin: 0;
+                background: $button-bg-color;
+                width: 100%;
+                text-align: center;
+                color: #ffffff;
+                font-size: 12px;
+                font-family: 'Raleway-SemiBold';
+                letter-spacing: 1.2px;
+                line-height: 38px;
+                border-radius: 0;
+                text-decoration: none !important;
+                border:1px solid transparent;
+                @include transition(0.2s all ease-in-out);
+                   &:hover {
+                  background: #ffffff;
+                   color: $button-bg-color;
+                 border:1px solid $button-bg-color;
+               @include transition(0.2s all ease-in-out);
+                }
+                @include device-md {
+                    width: auto;
+                    line-height: inherit;
+                }
+            }
+            @include device-md {
+                width: 100%;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            &:last-child{
+                width: 28%;
+                @include device-md {
+                    width: 100%;
+                    padding-left: 25px;
+                 }
+            }
+            @include device-md {
+                display: block!important;
+
+            }
+            img{
+                width: 18px;
+            }
+        }
+        &:first-child{
+            background: transparent;
+            color:$menu-color;
+        }
+    }
+}
+.modal-header { border-bottom: none; padding-bottom: 0;}
+.modal-footer { border-top: none; padding-top: 0; }

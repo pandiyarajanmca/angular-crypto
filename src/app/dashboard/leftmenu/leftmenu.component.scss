@@ -1,0 +1,208 @@
+@import "../../../variables.scss";
+@import "../../../mixins.scss";
+
+.left-menu {
+  position: relative;
+
+  img {
+    max-width: 100%;
+  }
+
+
+
+  .border-click {
+    background-color: $border-light-grey;
+    width: 15px;
+    z-index: 20;
+    left: 240px;
+    display: block;
+    border: none;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    cursor: ew-resize;
+
+    @include device-md {
+      background-color: rgba(0, 0, 0, 0.43);
+      width: 100%;
+      z-index: 20;
+      margin-left: 240px;
+      left: auto;
+    }
+
+    &::after {
+      content: '||';
+      top: 0;
+      position: fixed;
+      bottom: 0;
+      height: 25px;
+      width: 15px;
+      margin: auto 4px;
+      font-size: 16px;
+
+      @include device-md {
+        content: 'X';
+        top: 10px;
+        right: 10px;
+        background: $bg-white;
+        width: 35px;
+        height: 35px;
+        line-height: 38px;
+        cursor: pointer;
+        text-align: center;
+        margin: 0;
+        @include border-radius(50%);
+      }
+    }
+  }
+
+  .logo {
+    margin: 10px auto 50px;
+    display: block;
+    max-width: 120px;
+  }
+
+  .logo-small {
+    width: 50px;
+    margin: 20px 0 80px;
+  }
+
+  .nav-item {
+    margin-right: 10px;
+    text-transform: uppercase;
+
+    .nav-link {
+      padding: 10px 5px;
+      border-bottom: solid 1px $border-light-grey;
+      border-left: solid 5px transparent;
+     position: relative;
+      .noti-span{
+        padding: 1px 4px 3px 4px;
+        color: #ffffff;
+        background: #c2c7e3;
+        font-size: 10px;
+        border-radius: 25px;
+        position: relative;
+        position: absolute;
+        top: 8px;
+        right: 70px;
+      }
+      .icon {
+        display: inline-block;
+      }
+
+      span {
+        padding-left: 15px;
+      }
+
+      &.active {
+        border-left: solid 5px $border-color;
+        background-color: $button-bg-color;
+        color: $button-light-text;
+
+        .icon {
+          display: none;
+        }
+
+        .icon1 {
+          display: inline-block;
+        }
+      }
+    }
+
+    img.mr-1,
+    img.icon1 {
+      width: 30px;
+    }
+
+    .icon1 {
+      display: none;
+    }
+  }
+  .social-links {
+    position: fixed;
+    bottom: 100px;
+     width:250px;
+     float: left;
+       .social-share {
+     .share-img{
+       display: none;
+     }
+     img{
+       width: 25px;
+       height: 25px;
+       margin: 5px;
+     }
+    }
+ }
+  &::before {
+    position: fixed;
+    content: '';
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 250px;
+    z-index: -1;
+    background: $bg-white;
+  }
+
+  &.left-close,
+  &.right-open {
+    position: relative;
+    width: 70px;
+    @include device-md {
+      display: none;
+    }
+    .nav-link {
+      .noti-span{
+       top: 10px!important;
+        right: 15px!important;
+      }
+    }
+    .social-links {
+      bottom: 40px;
+      width: 60px;
+      .social-share {
+      .share-img{
+        display: block;
+      }
+     .social-icon {
+        opacity: 0;
+     }
+     &:hover{
+     .social-icon {
+     opacity: 1;
+      }
+   }
+    }
+  }
+    &::before {
+     width: 60px;
+     }
+
+    .border-click {
+      width: 15px;
+      left: 60px;
+      @include device-md {
+        display: none;
+      }
+    }
+
+    .nav-item {
+      margin-right: 0;
+      .nav-link {
+        padding-left: 10px;
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+
+
+}
+
+
+
+

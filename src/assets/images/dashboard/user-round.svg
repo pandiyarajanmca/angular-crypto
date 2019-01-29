@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Group_62" data-name="Group 62" viewBox="0 0 37 37">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;stroke:#a1a6bd;stroke-miterlimit:10;stroke-width:2px}.cls-2{fill:#a1a6bd}
+        </style>
+    </defs>
+    <ellipse id="Ellipse_5" cx="17.5" cy="17.5" class="cls-1" data-name="Ellipse 5" rx="17.5" ry="17.5" transform="translate(1 1)"/>
+    <circle id="Ellipse_6" cx="5.514" cy="5.514" r="5.514" class="cls-2" data-name="Ellipse 6" transform="translate(12.986 8.991)"/>
+    <path id="Path_78" d="M36.163 46.382c0-5.957-5.5-10.782-12.282-10.782S11.6 40.425 11.6 46.382a20.151 20.151 0 0 0 11.609 4.185c8.804-.001 12.954-4.185 12.954-4.185z" class="cls-2" data-name="Path 78" transform="translate(-5.382 -14.566)"/>
+</svg>

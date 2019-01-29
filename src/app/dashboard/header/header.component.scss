@@ -1,0 +1,63 @@
+@import "../../../variables.scss";
+@import "../../../mixins.scss";
+.dashboard-head{
+  .nav-item{
+    .btn{
+      // border: solid 1px;
+      @include border-radius(50%);
+      width: 35px;
+      height: 35px;
+      padding: 0;
+      line-height: 31px;
+
+      img {
+        max-width: 20px;
+      }
+    }
+
+    &.but-li {
+      display: none;
+
+      @include device-md {
+        display: block;
+      }
+
+      .btn {
+        @include device-md {
+          position: fixed;
+          right: 15px;
+          top: 7px;
+          z-index: 10;
+        }
+      }
+    }
+
+    &.currency-li {
+      @include device-md {
+        text-align: center;
+      }
+    }
+
+    &.mobile-logo {
+      display: none;
+
+      @include device-md {
+        display: block;
+      }
+
+      img {
+        height: 35px;
+      }
+    }
+  }
+
+  @include device-md {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+}

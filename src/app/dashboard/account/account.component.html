@@ -1,0 +1,155 @@
+<!-- ** note : please paste the common layout for all component ********-->
+<!--** common layout start ** -->
+<div class="container-fluid dashboard-root p-0" [class]="authService.globalSidebarLeft?'container-fluid dashboard-root p-0 right-close left-open ':(authService.globalSidebarRight?' container-fluid dashboard-root p-0 right-open left-close':'container-fluid dashboard-root p-0 left-close right-close')">
+  <div class="left-sidenav">
+    <app-leftmenu></app-leftmenu>
+  </div>
+  <div class="main-section">
+    <app-header></app-header>
+    <div class="bg-dashboard" slimScroll [options]="opts" style="height: 820px;">
+      <div class="row bg-dashboard">
+        <div class="col">
+          <div class="dashboard-body p-2 profile ">
+            <!-- common layout end -->
+            <div class="row blue-border-top bg-white mt-2 ">
+              <div class="col-12 col-lg-12 col-xl-2">
+                <div class="row card-body p-0 pt-3 pb-3 text-center change">
+                  <div class="col-12 "> <img src="/assets/images/dashboard/user-round.svg" class="rounded-circle" alt="profile"></div>
+                  <br>
+                  <p class="col-12 mt-2"> <a href="#">Edit Picture </a> </p>
+                </div>
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="card-body" *ngIf="userData">
+                  <div class="row mb-3">
+                    <span class="col-sm-4 p-0 text-right">Account Name </span>
+                    <span class="col-sm-1 text-center"> :</span>
+                    <span class="col-sm-7  p-0"> {{userData.legalName}}</span>
+                  </div>
+                  <div class="row mb-3">
+                    <span class="col-sm-4 p-0 text-right">E-mail</span>
+                    <span class="col-sm-1 text-center">:</span>
+                    <span class="col-sm-7  p-0"> {{userData.email}}</span>
+                  </div>
+                  <div class="row mb-3">
+                    <span class="col-sm-4 p-0 text-right">Preferred Currency </span>
+                    <span class="col-sm-1 text-center"> :</span>
+                    <span class="col-sm-7  p-0" *ngIf="!PreferredCurrencyFlag"><i class="fa fa-pencil" (click)="PreferredCurrencyFlag=true" ></i> {{userData.preferredCurrency  ? userData.preferredCurrency : NA}}</span>
+                    <span class="col-sm-7  p-0" *ngIf="PreferredCurrencyFlag"><i class="fa fa-save" (click)="PreferredCurrencyFlag=false;updateData(userData.preferredCurrency, 'preferredCurrency');" ></i>  <input type="text" [(ngModel)]="userData.preferredCurrency" value="{{userData.preferredCurrency}}" id="password" /> </span>
+                  </div>
+                  <div class="row mb-3">
+                    <span class="col-sm-4 p-0 text-right">Password </span>
+                    <span class="col-sm-1 text-center">:</span>
+                    <span class="col-sm-7  p-0"  *ngIf="!passwordFlag"><i class="fa fa-pencil" (click)="passwordFlag=true" ></i> ********</span>
+                    <span class="col-sm-7  p-0"  *ngIf="passwordFlag"><i class="fa fa-save" (click)="passwordFlag=false;updateData(password, 'password');" ></i> <input type="password" [(ngModel)]="password" id="password" /></span>
+                  </div>
+                  <div class="row mb-3">
+                    <span class="col-sm-4 p-0 text-right">Business Activity</span>
+                    <span class="col-sm-1 text-center">:</span>
+                    <span class="col-sm-7  p-0" *ngIf="!businessActivityFlag"><i class="fa fa-pencil" (click)="businessActivityFlag=true" ></i>{{userData.businessActivity ? userData.businessActivity : NA}} </span>
+                    <span class="col-sm-7  p-0" *ngIf="businessActivityFlag"><i class="fa fa-save" (click)="businessActivityFlag=false; updateData(userData.businessActivity, 'businessActivity');" ></i><input [(ngModel)]="userData.businessActivity" id="businessActivity" /> </span>
+                  </div>
+                  <div class="row mb-3">
+                    <span class="col-sm-4 p-0 text-right">Skype ID</span>
+                    <span class="col-sm-1 text-center">:</span>
+                    <span class="col-sm-7  p-0" *ngIf="!skypeFlag"><i class="fa fa-pencil" (click)="skypeFlag=true"></i> {{userData.skypeId ? userData.skypeId : NA}}</span>
+                    <span class="col-sm-7  p-0" *ngIf="skypeFlag" ><i class="fa fa-save" (click)="skypeFlag=false;updateData(userData.skypeId, 'skypeId');"></i> <input [(ngModel)]="userData.skypeId" id="skypeId" /> </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12  col-md-6 col-xl-5" *ngIf="userData">
+                <div class="card-body p-0 pt-3 pb-3">
+                  <div class="row mb-3">
+                    <span class="col-5 p-0 text-right">Trust Name</span>
+                    <span class="col-2 text-center"> :</span>
+                    <span class="col-5  p-0"> N.A</span>
+                  </div>
+                  <div class="row mb-3">
+                    <span class="col-5 p-0 text-right">Trust Established</span>
+                    <span class="col-2 text-center">:</span>
+                    <span class="col-5  p-0"> N.A</span>
+                  </div>
+                  <div class="row mb-3">
+                    <span class="col-5 p-0 text-right">Trust ID</span>
+                    <span class="col-2 text-center"> :</span>
+                    <span class="col-5  p-0"><i class="fa fa-pencil"></i> N.A</span>
+                  </div>
+                  <div class="row mb-3">
+                    <span class="col-5 p-0 text-right">ETH Wallet Address</span>
+                    <span class="col-2 text-center">:</span>
+                    <span class="col-5  p-0"><i class="fa fa-pencil"></i> N.A </span>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 pl-5 pr-5 mt-4 payment_inner">
+                <div class="tokenox-form">
+                  <div class="col-12 pt-4 pb-4">
+                    <div class="row inner_div mb-2">
+                      <div class="col-5 d-flex align-items-center">
+                        <span>Mobile Number Verification </span>
+                      </div>
+                      <div class="col-3 d-flex align-items-center pr-0">
+                        <i class="fa text-warning">... </i>
+                      </div>
+                      <div class="col-3 d-flex align-items-center pr-0">
+                        {{ userData && userData.isPhoneVerified ? 'Verified' : 'Pending' }}
+                      </div>
+                      <div class="col-1 align-items-center text-right pr-0">
+                        <a class="btn" *ngIf="userData && !userData.isPhoneVerified" routerLink="/dashboard/mobile-verifications" > <i class="fa fa-angle-right"></i></a>
+                        <a class="btn" *ngIf="userData && userData.isPhoneVerified"> <i class="fa fa-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <div class="row inner_div mb-2">
+                      <div class="col-5 d-flex align-items-center">
+                        <span>KYC Verification</span>
+                      </div>
+                      <div class="col-3 d-flex align-items-center pr-0">
+                        <i class="fa text-warning">... </i>
+                      </div>
+                      <div class="col-3 d-flex align-items-center pr-0">
+                        Pending
+                      </div>
+                      <div class="col-1 text-right align-items-center pr-0">
+                        <a class="btn m-auto" routerLink="/dashboard/kyc"> <i class="fa fa-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <div class="row inner_div mb-2">
+                      <div class="col-5 d-flex  align-items-center">
+                        <span>Setup Trust</span>
+                      </div>
+                      <div class="col-3 d-flex  align-items-center pr-0">
+                        <i class="fa text-warning">...</i>
+                      </div>
+                      <div class="col-3 d-flex  align-items-center pr-0">
+                        Pending
+                      </div>
+                      <div class="col-1 text-right align-items-center pr-0">
+                        <a class="btn m-auto" routerLink="/dashboard/account-setup"> <i class="fa fa-angle-right"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <h3>My Official Documents</h3>
+                  <p>Once you setup your trust, you will be able to access all your signed document here.</p>
+                  <div class="mt-2">
+                    <ng-select class="selected-box d-inline-block" [items]="defaultBindingsList" [(ngModel)]="selectedCity">
+                    </ng-select> <a href="" class="ml-3"><i class="fa fa-eye"></i></a> <a href="" class="ml-3"><i class="fa fa-download"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- common layout start  -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-sidenav">
+    <app-righttmenu></app-righttmenu>
+  </div>
+</div>
+<!-- common layout end  -->
+<swal #successSwal title="SUCCESS!" text="{{successMsg}}" type="success" [focusCancel]="true"></swal>
+<swal #errorSwal title="ERROR" text="{{errMsg}}" type="error" [focusCancel]="true"></swal>

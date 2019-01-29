@@ -1,0 +1,15 @@
+<ul class="nav bg-white dashboard-head p-2">
+  <li class="col nav-item mobile-logo mr-3">
+    <a href=""><img src="assets/images/dashboard/bull-logo.svg"></a>
+  </li>
+  <li class="col nav-item currency-li">
+    <span class="mr-3">BTC/USD</span>  <span>BTC/USD</span><br>
+    <span class="text-success mr-3">$3745.00</span>
+    <span class="text-danger">$105.08</span>
+  </li>
+  <li class="col nav-item but-li text-right">
+    <a class="btn"  *ngIf="!authService.globalSidebarLeft" (click)="authService.collapseBar('left')">
+      <img  src="assets/images/dashboard/menu-button.svg">
+    </a>
+  </li>
+</ul>

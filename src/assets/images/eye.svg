@@ -1,0 +1,16 @@
+<svg id="Group_132" data-name="Group 132" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.767 11.3">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #a1a6bd;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <path id="Path_96" data-name="Path 96" class="cls-1" d="M17.267,9.1A9.4,9.4,0,0,1,.5,9.1" transform="translate(0 -3.45)"/>
+  <circle id="Ellipse_15" data-name="Ellipse 15" class="cls-1" cx="3.653" cy="3.653" r="3.653" transform="translate(5.231 1.817)"/>
+  <path id="Path_97" data-name="Path 97" class="cls-1" d="M.5,5.65A9.415,9.415,0,0,1,8.884.5a9.311,9.311,0,0,1,8.264,4.91c.06.06.06.12.12.24"/>
+</svg>

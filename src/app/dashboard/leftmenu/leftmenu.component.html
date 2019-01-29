@@ -1,0 +1,54 @@
+<ul class="nav flex-column left-menu  h-100" [class]="authService.globalSidebarLeft?'left-open nav flex-column left-menu  h-100':'nav flex-column left-menu  left-close h-100'">
+  <span class="border-click" draggable="true" (click)="authService.collapseBar('left')"></span>
+  <li class="nav-item">
+    <a class="nav-link m-auto" *ngIf="authService.globalSidebarLeft" href="#" ><img class="logo" src="/assets/images/logo-medium.png"></a>
+    <a class="nav-link p-0 m-auto " *ngIf="!authService.globalSidebarLeft" href="#"><img class="logo logo-small" src="/assets/images/dashboard/bull-logo.svg"></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/dashboard/home" routerLinkActive="active" >
+      <img src="/assets/images/dashboard/home-active.svg" class="icon1 mr-1">
+      <img src="/assets/images/dashboard/home.svg" class="icon mr-1"> <span>Dashboard</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/dashboard/account" routerLinkActive="active" >
+      <img src="/assets/images/dashboard/account-active.svg" class="icon1 mr-1">
+      <img src="/assets/images/dashboard/account.svg" class="icon mr-1"> <span>Account</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/dashboard/my-trust" routerLinkActive="active" >
+      <img src="/assets/images/dashboard/mytrust-active.svg" class="icon1 mr-1">
+      <img src="/assets/images/dashboard/mytrust.svg" class="icon mr-1"> <span>My Trust</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/dashboard/assets" routerLinkActive="active" >
+      <img src="/assets/images/dashboard/assets-active.svg" class="icon1 mr-1">
+      <img src="/assets/images/dashboard/assets.svg" class="icon mr-1"> <span>Assets</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/dashboard/notifications" routerLinkActive="active" >
+      <img src="/assets/images/dashboard/notification-active.svg" class="icon1 mr-1">
+      <img src="/assets/images/dashboard/notification.svg" class="icon mr-1"><span>Notifications</span><i class="noti-span">33</i></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/dashboard/support" routerLinkActive="active" >
+      <img src="/assets/images/dashboard/support-active.svg" class="icon1 mr-1">
+      <img src="/assets/images/dashboard/support.svg" class="icon mr-1"> <span>Support</span> </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="logoutDashboard()"><img src="/assets/images/dashboard/logout.svg" class="mr-1"> <span>Logout</span>
+    </a>
+  </li>
+  <li class="nav-item social-links text-center">
+      <span class="social-share "><span class="share-img"><img src="/assets/images/share.svg"></span>
+      <span class="social-icon ">
+        <a href=""><img src="/assets/images/instegram.svg"></a>
+        <a href=""><img src="/assets/images/facebook.svg"></a>
+        <a href=""><img src="/assets/images/twitter.svg"></a>
+        <a href=""><img src="/assets/images/linkedin.svg"></a>
+      </span>
+    </span>
+  </li>
+</ul>
+
+
+

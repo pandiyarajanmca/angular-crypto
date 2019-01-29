@@ -1,0 +1,65 @@
+<!-- ** note : please paste the common layout for all component ********-->
+<!--** common layout start ** -->
+<div class="container-fluid dashboard-root p-0" [class]="authService.globalSidebarLeft?'container-fluid dashboard-root p-0 right-close left-open ':(authService.globalSidebarRight?' container-fluid dashboard-root p-0 right-open left-close':'container-fluid dashboard-root p-0 left-close right-close')">
+  <div class="left-sidenav">
+    <app-leftmenu></app-leftmenu>
+  </div>
+  <div class="main-section">
+    <app-header></app-header>
+    <div class="bg-dashboard" slimScroll [options]="opts" style="height: 820px;">
+      <div class="row bg-dashboard">
+        <div class="col">
+          <div class="dashboard-body pt-2">
+            <!-- common layout end -->
+            <div class="">
+              <div class="col-12 payment_div mb-4">
+                <span class="payment_span">
+                  <a href=""><i class="fa fa-chevron-left"></i>I Wish to Make a Payment</a>
+                </span>
+              </div>
+              <div class="col-12 pl-4 pr-4 pt-4 payment_inner">
+                <form class="tokenox-form" [formGroup]="paymentForm" (ngSubmit)="payment(paymentForm.value)">
+                  <h3>Description</h3>
+                  <p>Please provide a brief description of your transaction for ease of identification</p>
+                  <div class="form-group input-field">
+                    <textarea class="form-control" id="description" name="description" formControlName="description"></textarea>
+                    <label for="description">Enter a brief description.</label>
+                  </div>
+                  <h3>Request Details</h3>
+                  <p>Kindly enter the following details required to generate the Trust Deed for your transaction.<br>
+                    You can also save this session now and continue later.</p>
+
+                  <div class="form-group input-field">
+                    <input type="text" class="form-control" id="field1" placeholder="" name="field1" formControlName="field1" />
+                    <label for="field1">Field #1</label>
+                  </div>
+                  <div class="form-group input-field">
+                    <input type="text" class="form-control" id="field2" placeholder="" name="field2" formControlName="field2" />
+                    <label for="field2">Field #2</label>
+                  </div>
+                  <div class="form-group input-field">
+                    <input type="text" class="form-control" id="field3" placeholder="" name="field3" formControlName="field3" />
+                    <label for="field3">Field #3</label>
+                  </div>
+                  <div class="bottom_payment ">
+                    <button type="submit" class="btn mt-3 light-button">
+                      SAVE SESSION
+                    </button>
+                    <button type="submit" class="btn mt-3 light-button btn-dark">
+                      GENERATE DOCUMENTS
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- common layout start  -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-sidenav">
+    <app-righttmenu></app-righttmenu>
+  </div>
+</div>
+<!-- common layout end  -->

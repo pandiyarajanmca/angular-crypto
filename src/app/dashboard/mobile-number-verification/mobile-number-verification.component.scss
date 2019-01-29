@@ -1,0 +1,9 @@
+
+@import "../../../variables.scss";
+@import "../../../mixins.scss";
+.inner_div{
+border-left: 0;
+}
+.payment_inner1{
+    background: $dashboard-bg-color;  
+}

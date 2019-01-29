@@ -1,0 +1,36 @@
+<app-header [verficaionPageMenu]='menu_active'></app-header>
+<section class="container-fluid bg-dashboard">
+  <div class="row">
+    <div class="container ">
+      <div class="row">
+        <div class="verification-whole-section">
+          <div class="col-sm-12 text-center" *ngIf="!flag && !invalidFlag">
+            <h2>Verify your account.</h2>
+            <p>
+              Click the link sent to your registered e-mail address in order to
+              verify your account.
+            </p>
+            <p>
+              Once verified, you will be able to log in to the TokenOx platform.
+            </p>
+            <a routerLink="/login" class="mt-5 mb-5 dark-button"> TAKE ME TO LOGIN </a>
+            <!-- <span>Didn’t receive a verification e-mail? <a> Resend</a>  verification link.</span> -->
+          </div>
+          <div class="col-sm-12 text-center" *ngIf="flag && !invalidFlag">
+            <h2>verified your account successfully.</h2>
+
+            <a routerLink="/login" class="mt-5 mb-5 dark-button"> TAKE ME TO LOGIN </a>
+
+          </div>
+          <div class="col-sm-12 text-center" *ngIf="invalidFlag">
+            <h2>Invalid Link.</h2>
+
+            <a routerLink="/login" class="mt-5 mb-5 dark-button"> TAKE ME TO LOGIN </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

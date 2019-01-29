@@ -1,0 +1,33 @@
+@import "../../../variables.scss";
+@import "../../../mixins.scss";
+
+.service-whole-section {
+  background: $dashboard-bg-color;
+  height: 100vh;
+  @include full-width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include device-xs {
+    display: block;
+    height: 100%;
+    padding-top: 150px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+  h2 {
+    font-family: "Baskerville";
+    font-size: 38px;
+    line-height: 40px;
+    color: $button-bg-color;
+    margin-bottom: 30px;
+    @include device-xs {  font-size: 36px;}
+  }
+  p {
+    font-family: "Baskerville";
+    font-size: 17px;
+    color: $button-bg-color;
+    margin-bottom: 8px;
+    @include device-sm {  font-size: 14px;}
+  }
+}
